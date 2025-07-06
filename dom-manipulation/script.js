@@ -67,6 +67,7 @@ document.getElementById('newQuote').addEventListener('click', showRandomQuote);
 
 document.addEventListener('DOMContentLoaded', () => {
   loadQuotes();
+  createAddQuoteForm();
   const lastQuote = sessionStorage.getItem('lastQuote');
   if (lastQuote) {
     const quote = JSON.parse(lastQuote);
@@ -126,3 +127,25 @@ function syncQuotesWithServer() {
       console.error(err);
     });
 }
+
+function createAddQuoteForm() {
+  const formDiv = document.createElement('div');
+
+  const inputText = document.createElement('input');
+  inputText.id = 'newQuoteText';
+  inputText.placeholder = 'Enter a new quote';
+  formDiv.appendChild(inputText);
+
+  const inputCategory = document.createElement('input');
+  inputCategory.id = 'newQuoteCategory';
+  inputCategory.placeholder = 'Enter quote category';
+  formDiv.appendChild(inputCategory);
+
+  const addBtn = document.createElement('button');
+  addBtn.textContent = 'Add Quote';
+  addBtn.onclick = addQuote;
+  formDiv.appendChild(addBtn);
+
+  document.body.appendChild(formDiv);
+}
+const fetchQuotesFromServer = syncQuotesWithServer;

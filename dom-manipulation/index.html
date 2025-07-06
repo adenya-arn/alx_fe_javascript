@@ -14,7 +14,18 @@
     </select>
     <div id="quoteDisplay">Click the button to see a quote.</div>
     <button id="newQuote">Show New Quote</button>
+    <select id="categoryFilter" onchange="filterQuotes()">
+        <option value="all">All Categories</option>
+    </select>
 
+    <br><br>
+
+    <button onclick="exportToJsonFile()">Export Quotes</button>
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+
+    <br><br>
+
+    <button onclick="syncQuotesWithServer()">Sync with Server</button>
     <h2>Add a New Quote</h2>
     <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
     <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
