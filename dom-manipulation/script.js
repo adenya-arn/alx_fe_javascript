@@ -1,4 +1,4 @@
-
+// script.js
 let quotes = [];
 
 function loadQuotes() {
@@ -144,7 +144,7 @@ async function syncQuotes() {
 
   if (isNew) {
     const notification = document.createElement('div');
-    notification.textContent = 'New quotes fetched from server.';
+    notification.textContent = 'Quotes synced with server!';
     notification.style.background = '#28a745';
     notification.style.color = 'white';
     notification.style.padding = '10px';
